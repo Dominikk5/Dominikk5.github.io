@@ -1,0 +1,780 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Animada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(to right, #2c3e50, #3498db);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            background-color: #2c3e50;
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #3498db;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:nth-child(1) {
+            background: linear-gradient(135deg, #fff 50%, #ffecec 100%);
+            border-left: 5px solid #ff6b6b;
+        }
+        .card:nth-child(1):hover {
+            transform: rotate(2deg) scale(1.02);
+            box-shadow: 0 8px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .card:nth-child(2) {
+            background: linear-gradient(135deg, #fff 50%, #e8f4ff 100%);
+            border-top: 5px solid #4facfe;
+        }
+        .card:nth-child(2):hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 20px rgba(79, 172, 254, 0.3);
+        }
+
+        .card:nth-child(3) {
+            background: linear-gradient(135deg, #fff 50%, #fff0e5 100%);
+            border-right: 5px solid #ff8c00;
+        }
+        .card:nth-child(3):hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(255, 140, 0, 0.3);
+        }
+
+        .card:nth-child(4) {
+            background: linear-gradient(135deg, #fff 50%, #f0fff0 100%);
+            border-bottom: 5px solid #50c878;
+        }
+        .card:nth-child(4):hover {
+            transform: rotate(-2deg) scale(1.02);
+            box-shadow: 0 8px 15px rgba(80, 200, 120, 0.3);
+        }
+
+        .card:nth-child(5) {
+            background: linear-gradient(135deg, #fff 50%, #f5e6ff 100%);
+            border: 2px dashed #9b59b6;
+        }
+        .card:nth-child(5):hover {
+            transform: translateX(10px);
+            box-shadow: -8px 8px 15px rgba(155, 89, 182, 0.3);
+        }
+
+        .card:nth-child(6) {
+            background: linear-gradient(135deg, #fff 50%, #ffe6e6 100%);
+            border-radius: 20px 0 20px 0;
+        }
+        .card:nth-child(6):hover {
+            transform: skew(-2deg, 2deg);
+            box-shadow: 0 8px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .card:nth-child(7) {
+            background: linear-gradient(135deg, #fff 50%, #e6ffe6 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 95% 100%, 0 100%);
+        }
+        .card:nth-child(7):hover {
+            transform: perspective(1000px) rotateX(5deg);
+            box-shadow: 0 15px 20px rgba(46, 204, 113, 0.3);
+        }
+
+        .card:nth-child(8) {
+            background: linear-gradient(135deg, #fff 50%, #fff3e6 100%);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+        .card:nth-child(8):hover {
+            border-color: #f39c12;
+            transform: translateY(-10px) translateX(-10px);
+            box-shadow: 10px 10px 0 rgba(243, 156, 18, 0.3);
+        }
+
+        .card:nth-child(9) {
+            background: linear-gradient(135deg, #fff 50%, #e6f3ff 100%);
+            position: relative;
+        }
+        .card:nth-child(9)::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 48%, #3498db 49%, #3498db 51%, transparent 52%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1;
+        }
+        .card:nth-child(9):hover::before {
+            opacity: 0.1;
+        }
+        .card:nth-child(9):hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            transition: all 0.4s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        
+        .card:nth-child(1) h2 { color: #ff6b6b; }
+        .card:nth-child(2) h2 { color: #4facfe; }
+        .card:nth-child(3) h2 { color: #ff8c00; }
+        .card:nth-child(4) h2 { color: #50c878; }
+        .card:nth-child(5) h2 { color: #9b59b6; }
+        .card:nth-child(6) h2 { color: #e74c3c; }
+        .card:nth-child(7) h2 { color: #2ecc71; }
+        .card:nth-child(8) h2 { color: #f39c12; }
+        .card:nth-child(9) h2 { color: #3498db; }
+
+       
+        .button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .card:nth-child(1) .button { background-color: #ff6b6b; }
+        .card:nth-child(2) .button { background-color: #4facfe; }
+        .card:nth-child(3) .button { background-color: #ff8c00; }
+        .card:nth-child(4) .button { background-color: #50c878; }
+        .card:nth-child(5) .button { background-color: #9b59b6; }
+        .card:nth-child(6) .button { background-color: #e74c3c; }
+        .card:nth-child(7) .button { background-color: #2ecc71; }
+        .card:nth-child(8) .button { background-color: #f39c12; }
+        .card:nth-child(9) .button { background-color: #3498db; }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+
+       
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #3498db;
+        }
+
+       
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        .card:nth-child(10) {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+}
+.card:nth-child(10):hover {
+    transform: translateY(-10px) rotateX(10deg);
+    box-shadow: 0 15px 25px rgba(72, 219, 251, 0.3);
+    background: rgba(255, 255, 255, 0.8);
+}
+.card:nth-child(10) h2 { color: #48dbfb; }
+.card:nth-child(10) .button { background-color: #48dbfb; }
+
+
+.card:nth-child(11) {
+    background: linear-gradient(135deg, #fff 50%, #ffe6f2 100%);
+    border-radius: 30px 0 30px 0;
+    animation: wave 3s infinite;
+}
+@keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+.card:nth-child(11):hover {
+    animation: none;
+    transform: scale(1.03) rotate(3deg);
+    box-shadow: 0 10px 20px rgba(236, 64, 122, 0.3);
+}
+.card:nth-child(11) h2 { color: #ec407a; }
+.card:nth-child(11) .button { background-color: #ec407a; }
+
+
+.card:nth-child(12) {
+    background: linear-gradient(135deg, #fff 50%, #e6ffe6 100%);
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+}
+.card:nth-child(12)::before {
+    content: '';
+    position: absolute;
+    top: -3px; right: -3px; bottom: -3px; left: -3px;
+    background: linear-gradient(45deg, #00b894, #00cec9);
+    z-index: -1;
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.card:nth-child(12):hover::before {
+    opacity: 1;
+}
+.card:nth-child(12):hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 184, 148, 0.3);
+}
+.card:nth-child(12) h2 { color: #00b894; }
+.card:nth-child(12) .button { background-color: #00b894; }
+
+
+.card:nth-child(13) {
+    background: linear-gradient(135deg, #fff 50%, #fff0f5 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%, 0 85%);
+}
+.card:nth-child(13):hover {
+    transform: perspective(1000px) rotateY(-10deg);
+    box-shadow: 20px 8px 15px rgba(255, 88, 88, 0.3);
+}
+.card:nth-child(13) h2 { color: #ff5858; }
+.card:nth-child(13) .button { background-color: #ff5858; }
+
+.card:nth-child(14) {
+    background: linear-gradient(135deg, #fff 50%, #f5f0ff 100%);
+    border: 2px solid #a55eea;
+    position: relative;
+}
+.card:nth-child(14)::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid #a55eea;
+    filter: blur(4px);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.card:nth-child(14):hover::after {
+    opacity: 1;
+}
+.card:nth-child(14):hover {
+    transform: translateX(-5px) translateY(-5px);
+    box-shadow: 5px 5px 0 #a55eea;
+}
+.card:nth-child(14) h2 { color: #a55eea; }
+.card:nth-child(14) .button { background-color: #a55eea; }
+
+
+.card:nth-child(15) {
+    background: linear-gradient(135deg, #fff 50%, #fff8e1 100%);
+    transition: all 0.5s ease;
+    border-left: 4px solid #ffd700;
+}
+.card:nth-child(15):hover {
+    transform-origin: left;
+    transform: perspective(1500px) rotateY(10deg);
+    box-shadow: -10px 10px 20px rgba(255, 215, 0, 0.3);
+}
+.card:nth-child(15) h2 { color: #ffd700; }
+.card:nth-child(15) .button { background-color: #ffd700; }
+
+
+.card:nth-child(16) {
+    background: linear-gradient(135deg, #fff 50%, #f0f7ff 100%);
+    position: relative;
+    overflow: hidden;
+}
+.card:nth-child(16)::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(72, 198, 239, 0.1) 50%,
+        transparent 100%
+    );
+    animation: prism-rotate 3s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+@keyframes prism-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.card:nth-child(16):hover::before {
+    opacity: 1;
+}
+.card:nth-child(16):hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 15px 30px rgba(72, 198, 239, 0.3);
+}
+.card:nth-child(16) h2 { color: #48c6ef; }
+.card:nth-child(16) .button { background-color: #48c6ef; }
+
+.card:nth-child(17) {
+    background: linear-gradient(135deg, #fff 50%, #fff5f5 100%);
+    border: 2px solid transparent;
+    position: relative;
+    z-index: 1;
+}
+.card:nth-child(17)::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #ff6b95, #ffc796);
+    z-index: -1;
+    transition: opacity 0.3s;
+    opacity: 0;
+    filter: blur(5px);
+}
+.card:nth-child(17):hover {
+    border-color: transparent;
+    transform: scale(1.03);
+}
+.card:nth-child(17):hover::before {
+    opacity: 1;
+}
+.card:nth-child(17) h2 { color: #ff6b95; }
+.card:nth-child(17) .button { background-color: #ff6b95; }
+
+.card:nth-child(18) {
+    background: linear-gradient(135deg, #fff 50%, #f0fff4 100%);
+    position: relative;
+    clip-path: polygon(
+        0 0, 
+        100% 0, 
+        100% 85%, 
+        95% 85%, 
+        90% 100%, 
+        85% 85%, 
+        0 85%
+    );
+}
+.card:nth-child(18)::after {
+    content: '';
+    position: absolute;
+    bottom: 15%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 5px,
+        #6dd5b4 5px,
+        #6dd5b4 10px
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.card:nth-child(18):hover {
+    transform: translateY(-10px) rotate(-2deg);
+    box-shadow: 0 20px 30px rgba(109, 213, 180, 0.2);
+}
+.card:nth-child(18):hover::after {
+    opacity: 1;
+}
+.card:nth-child(18) h2 { color: #6dd5b4; }
+.card:nth-child(18) .button { background-color: #6dd5b4; }
+
+
+.card:nth-child(19) {
+    background: linear-gradient(135deg, #fff 50%, #f5f0ff 100%);
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.card:nth-child(19)::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: linear-gradient(
+        transparent,
+        rgba(191, 123, 255, 0.2)
+    );
+    top: -100%;
+    left: -25%;
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+}
+.card:nth-child(19):hover::before {
+    top: 100%;
+}
+.card:nth-child(19):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(191, 123, 255, 0.3);
+}
+.card:nth-child(19) h2 { color: #bf7bff; }
+.card:nth-child(19) .button { background-color: #bf7bff; }
+
+
+.card:nth-child(20) {
+    background: linear-gradient(135deg, #fff 50%, #fff8e1 100%);
+    border-left: 15px solid #ffd93d;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.card:nth-child(20)::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 0;
+    height: 100%;
+    width: 15px;
+    background: linear-gradient(
+        to bottom,
+        #ffd93d,
+        #ffb940
+    );
+    transition: all 0.4s ease;
+}
+.card:nth-child(20):hover {
+    border-left-width: 5px;
+    transform: translateX(10px);
+    box-shadow: -10px 10px 20px rgba(255, 217, 61, 0.3);
+}
+.card:nth-child(20):hover::before {
+    transform: skewY(45deg);
+}
+.card:nth-child(20) h2 { color: #ffd93d; }
+.card:nth-child(20) .button { background-color: #ffd93d; 
+}
+
+.card:nth-child(21) {
+    background: linear-gradient(135deg, #fff 50%, #f0f8ff 100%);
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px solid rgba(123, 174, 255, 0.2);
+}
+
+.card:nth-child(21)::before,
+.card:nth-child(21)::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(123, 174, 255, 0.1) 40%,
+        rgba(123, 174, 255, 0.2) 50%,
+        rgba(123, 174, 255, 0.1) 60%,
+        transparent 70%
+    );
+    animation: kaleidoscope 8s linear infinite;
+    pointer-events: none;
+}
+
+.card:nth-child(21)::after {
+    animation-duration: 12s;
+    animation-direction: reverse;
+    background: linear-gradient(
+        -45deg,
+        transparent 30%,
+        rgba(255, 123, 234, 0.1) 40%,
+        rgba(255, 123, 234, 0.2) 50%,
+        rgba(255, 123, 234, 0.1) 60%,
+        transparent 70%
+    );
+}
+
+@keyframes kaleidoscope {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.card:nth-child(21):hover {
+    transform: perspective(1000px) rotateX(10deg) rotateY(-10deg);
+    box-shadow: 
+        20px 20px 30px rgba(123, 174, 255, 0.2),
+        inset 0 0 20px rgba(123, 174, 255, 0.1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card:nth-child(21):hover::before {
+    animation-duration: 4s;
+}
+
+.card:nth-child(21):hover::after {
+    animation-duration: 6s;
+}
+
+.card:nth-child(21) h2 { 
+    color: #7baeff;
+    position: relative;
+    z-index: 1;
+}
+
+.card:nth-child(21) .button { 
+    background: linear-gradient(45deg, #7baeff, #ff7bea);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.card:nth-child(21) .button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(123, 174, 255, 0.4);
+}
+
+.card:nth-child(21) img {
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    z-index: 1;
+}
+
+.card:nth-child(21):hover img {
+    transform: scale(1.05) translateY(-5px);
+    filter: brightness(1.1) contrast(1.1);
+}
+
+    </style>
+</head>
+<body>
+    
+    <header>
+        <h1>Taller HTML y CSS</h1>
+        <p>Etiquetas, estilos y animaciones</p>
+    </header>
+   
+          <main>
+              <div class="card">
+                  <h2>Tarjeta con Rotación</h2>
+                  <p>Esta tarjeta tiene un gradiente de blanco a rosa suave, un borde izquierdo rojo, y al pasar el mouse gira 2 grados y se escala ligeramente. También tiene una sombra rosa al hacer hover.</p>
+                  <a href="#" class="button">Ver efecto</a>
+              </div>
+      
+              <div class="card">
+                  <h2>Elevación Suave</h2>
+                  <p>Presenta un gradiente azul claro, borde superior azul, y al pasar el mouse se eleva 15px con una transición suave. Incluye una sombra azul que enfatiza la elevación.</p>
+                  <a href="#" class="button">Ver efecto</a>
+              </div>
+      
+              <div class="card">
+                  <h2>Escala Naranja</h2>
+                  <p>Tiene un gradiente naranja suave, borde derecho naranja, y al hacer hover se escala a 1.05 de su tamaño original con una sombra naranja que acentúa el efecto.</p>
+                  <a href="#" class="button">Ver efecto</a>
+              </div>
+      
+              <div class="card">
+                  <h2>Rotación Verde</h2>
+                  <p>Combina un gradiente verde claro con un borde inferior verde. Al pasar el mouse, rota -2 grados y se escala, creando un efecto dinámico con sombra verde.</p>
+                  <a href="#" class="button">Ver efecto</a>
+              </div>
+      
+              <div class="card">
+                  <h2>Deslizamiento Lateral</h2>
+                  <p>Diseñada con un gradiente púrpura suave y borde punteado. Al hacer hover, se desliza hacia la derecha y proyecta una sombra hacia la izquierda en tono púrpura.</p>
+                  <a href="#" class="button">Ver efecto</a>
+              </div>
+      
+              <div class="card">
+                  <h2>Transformación Sesgada</h2>
+                  <p>Tiene bordes redondeados asimétricos y un gradiente rojo suave. Al pasar el mouse, se sesga en ambos ejes creando una perspectiva única con sombra roja.</p>
+                  <a href="#" class="button">Ver efecto</a>
+              </div>
+      
+              <div class="card">
+                  <h2>Efecto Perspectiva</h2>
+                  <p>Usa clip-path para crear una esquina cortada y gradiente verde. Al hacer hover, rota en el eje X creando un efecto de perspectiva 3D con sombra verde.</p>
+                  <a href="#" class="button">Ver efecto</a>
+              </div>
+      
+              <div class="card">
+                  <h2>Borde Animado</h2>
+                  <p>Tiene un gradiente naranja suave y borde transparente que se vuelve naranja al hacer hover. Se mueve diagonalmente y proyecta una sombra sólida naranja.</p>
+                  <a href="#" class="button">Ver efecto</a>
+              </div>
+      
+              <div class="card">
+                  <h2>Línea Diagonal</h2>
+                  <p>Presenta un gradiente azul suave y un efecto único: al hacer hover aparece una línea diagonal semitransparente que cruza la tarjeta, además de escalar y proyectar sombra.</p>
+                  <a href="#" class="button">Ver efecto</a>
+              </div>
+              <div class="card">
+                <h2>Efecto Cristal</h2>
+                <p>Esta tarjeta simula un efecto de cristal esmerilado con fondo semitransparente y efecto blur. Al hacer hover, se eleva y rota en el eje X.</p>
+                <a href="#" class="button">Ver efecto</a>
+            </div>
+            
+            <div class="card">
+                <h2>Efecto Ondulado</h2>
+                <p>Presenta una animación constante de ondulación que se detiene al hacer hover, transformándose en una rotación suave con escala.</p>
+                <a href="#" class="button">Ver efecto</a>
+            </div>
+            
+            <div class="card">
+                <h2>Marco Brillante</h2>
+                <p>Al pasar el mouse, aparece un borde brillante con degradado que enmarca la tarjeta, combinado con un suave efecto de escala.</p>
+                <a href="#" class="button">Ver efecto</a>
+            </div>
+            
+            <div class="card">
+                <h2>Efecto Origami</h2>
+                <p>Diseñada con una esquina doblada mediante clip-path. Al hacer hover, rota en perspectiva como si fuera papel.</p>
+                <a href="#" class="button">Ver efecto</a>
+            </div>
+            
+            <div class="card">
+                <h2>Efecto Neón</h2>
+                <p>Cuenta con un borde que brilla como neón al hacer hover, combinado con un desplazamiento y sombra sólida.</p>
+                <a href="#" class="button">Ver efecto</a>
+            </div>
+            
+            <div class="card">
+                <h2>Efecto Acordeón</h2>
+                <p>Al pasar el mouse, la tarjeta se despliega como un acordeón con una rotación en perspectiva desde el borde izquierdo.</p>
+                <a href="#" class="button">Ver efecto</a>
+            </div>
+
+            <div class="card">
+              <h2>Efecto Prisma</h2>
+              <p>Un efecto prismático rotatorio aparece al hacer hover, creando la ilusión de reflejos de cristal en movimiento sobre la tarjeta.</p>
+              <a href="#" class="button">Ver efecto</a>
+          </div>
+          
+          <div class="card">
+              <h2>Explosión de Color</h2>
+              <p>Al pasar el mouse, la tarjeta se ilumina con un degradado vibrante que parece emerger desde dentro, creando un efecto de explosión de color.</p>
+              <a href="#" class="button">Ver efecto</a>
+          </div>
+          
+          <div class="card">
+              <h2>Papel Rasgado</h2>
+              <p>Simula un papel rasgado en la parte inferior, con un patrón de líneas punteadas que aparece al hacer hover, como si fuera una hoja de cuaderno.</p>
+              <a href="#" class="button">Ver efecto</a>
+          </div>
+          
+          <div class="card">
+              <h2>Espejo Líquido</h2>
+              <p>Un efecto de reflejo líquido que se desliza sobre la tarjeta al hacer hover, creando una sensación de profundidad y movimiento.</p>
+              <a href="#" class="button">Ver efecto</a>
+          </div>
+          
+          <div class="card">
+              <h2>Portafolio</h2>
+              <p>Inspirada en un portafolio de artista, con un borde grueso que se transforma y se inclina al pasar el mouse sobre la tarjeta.</p>
+              <a href="#" class="button">Ver efecto</a>
+          </div>
+        
+        <div class="card">
+          <h2>Caleidoscopio Interactivo</h2>
+          <p>Una experiencia visual única que combina patrones geométricos giratorios, efectos de profundidad y brillos dinámicos que reaccionan al movimiento del cursor.</p>
+          <a href="#" class="button">Ver efecto</a>
+      </div>
+
+          </main>
+    <footer>
+          
+```
