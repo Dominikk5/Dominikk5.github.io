@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación con Estructura Completa</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Estilos para el Header */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Estilos para el Nav */
+        nav {
+            background-color: #555;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        /* Estilos para el Main */
+        main {
+            display: flex;
+            padding: 20px;
+            gap: 20px;
+            flex: 1;
+        }
+
+        /* Estilos para el Aside (lado izquierdo) */
+        aside {
+            width: 25%;
+            background-color: #eee;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para el Article (lado derecho) */
+        article {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para Figure */
+        figure {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        figure figcaption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #666;
+        }
+
+        /* Estilos para la Sección */
+        section {
+            margin-top: 20px;
+        }
+
+        /* Estilos para el Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Encabezado de la Aplicación</h1>
+    </header>
+
+    <!-- Nav -->
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#acerca">Acerca de</a>
+    </nav>
+
+    <!-- Main -->
+    <main>
+        <!-- Aside (barra lateral izquierda) -->
+        <aside>
+            <h2>Barra Lateral</h2>
+            <p>Este es un contenido adicional que puede incluir enlaces, anuncios o cualquier otro elemento que quieras destacar.</p>
+        </aside>
+
+        <!-- Article (contenido principal a la derecha) -->
+        <article>
+            <h2>Título del Artículo</h2>
+            <p>Este es el contenido principal del artículo. Aquí puedes incluir toda la información principal de la aplicación.</p>
+            
+            <!-- Figura -->
+            <figure>
+                <img src="https://via.placeholder.com/300" alt="Imagen de ejemplo">
+                <figcaption>Descripción de la imagen</figcaption>
+            </figure>
+
+            <!-- Sección -->
+            <section>
+                <h3>Subsección</h3>
+                <p>Esta es una subsección dentro del artículo donde puedes añadir contenido adicional.</p>
+            </section>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy;  Aplicación </p>
+    </footer>
+</body>
+</html>
+
