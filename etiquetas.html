@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etiquetas</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            color: #333;
+        }
+
+        h1 {
+            width: 100%;
+            text-align: center;
+            font-size: 2.5rem;
+            color: #4a4e69;
+            margin-bottom: 40px;
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 3px solid #9a8c98;
+            padding-bottom: 10px;
+        }
+
+        /* Grid Container for Boxes */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Dos columnas */
+            gap: 20px;
+            width: 100%;
+            max-width: 900px; /* Ajuste de ancho máximo */
+        }
+
+        /* Estilo de los cuadros */
+        .box {
+            padding: 25px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #fff;
+            background-color: #6b705c;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Estilos específicos para cada efecto */
+        .ease-in {
+            transition-timing-function: ease-in;
+            transition: transform 0.5s;
+        }
+        .ease-in:hover {
+            transform: scale(1.1);
+        }
+        .yellow-bg {
+            background-color: #ffdd57;
+            color: #333;
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+        .pink-border {
+            border: 3px solid #ffadad;
+        }
+        .text-right {
+            text-align: right;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+        .uppercase {
+            text-transform: uppercase;
+        }
+        .box-shadow {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+        }
+        .opacity {
+            opacity: 0.75;
+        }
+        .font-roboto {
+            font-family: 'Roboto', sans-serif;
+        }
+        .small-font {
+            font-size: 0.85rem;
+        }
+        .font-weight {
+            font-weight: 700;
+        }
+        .italic {
+            font-style: italic;
+        }
+        .text-ellipsis {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .underline-yellow {
+            text-decoration: underline;
+            text-decoration-color: yellow;
+        }
+        .underline-dotted {
+            text-decoration-style: dotted;
+        }
+        .underline-thick {
+            text-decoration-thickness: 3px;
+        }
+        .align-last-right {
+            text-align-last: right;
+        }
+        .justify-text {
+            text-align: justify;
+        }
+        .line-break {
+            line-break: anywhere;
+        }
+        .word-break {
+            word-break: break-all;
+        }
+        .rotate {
+            transform: rotate(45deg);
+            background-color: #b5838d;
+        }
+        .width-transition {
+            transition: width 2s;
+        }
+        .width-transition:hover {
+            width: 100%;
+        }
+        .bg-transition {
+            transition-property: background-color;
+        }
+        .bg-transition:hover {
+            background-color: #6d6875;
+        }
+        .transition-delay {
+            transition: background-color 0.5s ease;
+            transition-delay: 0.2s;
+        }
+        .transition-delay:hover {
+            background-color: #ffb4a2;
+        }
+        .spin-animation {
+            animation: spin 2s linear infinite;
+            background-color: #c9ada7;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0); }
+            100% { transform: rotate(360deg); }
+        }
+        .short-duration {
+            animation-duration: 0.3s;
+        }
+        .animation-delay {
+            animation: spin 2s linear infinite;
+            animation-delay: 0.5s;
+        }
+        .infinite-animation {
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        .alternate-animation {
+            animation: slide 2s alternate infinite;
+        }
+        @keyframes slide {
+            from { transform: translateX(0); }
+            to { transform: translateX(30px); }
+        }
+        .fill-mode-animation {
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .paused-animation {
+            animation: spin 2s linear paused;
+        }
+        .transform-origin {
+            transform: rotate(45deg);
+            transform-origin: center;
+            background-color: #b5838d;
+        }
+        .scale {
+            transform: scale(1.5);
+        }
+        .rotate-90 {
+            transform: rotate(90deg);
+        }
+        .skewX {
+            transform: skewX(6deg);
+        }
+        .translateX {
+            transform: translateX(-4px);
+        }
+        .perspective {
+            perspective: 500px;
+            transform: rotateY(20deg);
+        }
+        .backface-hidden {
+            backface-visibility: hidden;
+            animation: spin 2s infinite;
+        }
+        .border-radius {
+            border-radius: 8px;
+        }
+        .border-width {
+            border: 4px solid #ffadad;
+        }
+        .border-style {
+            border: 2px dashed #ffb4a2;
+        }
+        .border-collapse {
+            display: table;
+            border-collapse: collapse;
+        }
+        .border-spacing {
+            display: table;
+            border-spacing: 10px;
+        }
+        .outline-none {
+            outline: none;
+        }
+        .overflow-hidden {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .overflow-x-hidden {
+            overflow-x: hidden;
+        }
+        .overflow-y-hidden {
+            overflow-y: hidden;
+            height: 50px;
+        }
+        .z-index {
+            position: relative;
+            z-index: 10;
+            background-color: #ff6b6b;
+        }
+        .pointer-events-none {
+            pointer-events: none;
+        }
+        .resize-none {
+            resize: none;
+            overflow: hidden;
+        }
+        .cursor-pointer {
+            cursor: pointer;
+        }
+        .user-select-none {
+            user-select: none;
+        }
+        .filter-grayscale {
+            filter: grayscale(50%);
+        }
+        .backdrop-blur {
+            backdrop-filter: blur(10px);
+            background-color: rgba(107, 112, 92, 0.5);
+        }
+        .blend-screen {
+            background-color: #fcbf49;
+            mix-blend-mode: screen;
+        }
+        .clip-path {
+            clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+        }
+        .will-change {
+            will-change: transform;
+            transition: transform 0.3s ease-in-out;
+        }
+        .isolation-isolate {
+            isolation: isolate;
+            background-color: #6d6875;
+        }
+
+        /* Nuevas etiquetas */
+        .shape-outside {
+            shape-outside: circle(50%);
+            float: left;
+            width: 150px;
+            height: 150px;
+            background-color: #8d99ae;
+            border-radius: 50%;
+        }
+        .margin {
+            margin: 16px;
+            background-color: #ff6b6b;
+        }
+        .margin-top {
+            margin-top: 32px;
+            background-color: #fcbf49;
+        }
+        .margin-right {
+            margin-right: 48px;
+            background-color: #6b705c;
+        }
+        .margin-bottom {
+            margin-bottom: 64px;
+            background-color: #b5838d;
+        }
+        .margin-left {
+            margin-left: 80px;
+            background-color: #c9ada7;
+        }
+        .padding {
+            padding: 16px;
+            background-color: #f4f4f9;
+        }
+        .padding-top {
+            padding-top: 12px;
+            background-color: #d4a5a5;
+        }
+        .padding-right {
+            padding-right: 18px;
+            background-color: #6b705c;
+        }
+        .padding-bottom {
+            padding-bottom: 24px;
+            background-color: #fcbf49;
+        }
+        .padding-left {
+            padding-left: 30px;
+            background-color: #ffdd57;
+        }
+        .width-100 {
+            width: 100%;
+            background-color: #ff6b6b;
+        }
+        .height-150 {
+            height: 150px;
+            background-color: #6b705c;
+        }
+        .min-width {
+            min-width: 200px;
+            background-color: #f4f4f9;
+        }
+        .max-width {
+            max-width: 500px;
+            background-color: #fcbf49;
+        }
+        .min-height {
+            min-height: 100px;
+            background-color: #ffadad;
+        }
+        .max-height {
+            max-height: 400px;
+            background-color: #b5838d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Etiquetas CSS</h1>
+    <div class="grid-container">
+        <!-- Box 1 -->
+        <div class="box ease-in">Transition with ease-in</div>
+        <div class="box yellow-bg">Yellow Background Box</div>
+
+        <!-- Box 2 -->
+        <div class="box text-shadow">Text Shadow Effect</div>
+        <div class="box pink-border">Pink Border Box</div>
+
+        <!-- Box 3 -->
+        <div class="box text-right">Right-aligned Text</div>
+        <div class="box underline">Underlined Text</div>
+
+        <!-- Box 4 -->
+        <div class="box uppercase">Uppercase Text</div>
+        <div class="box box-shadow">Box with Shadow</div>
+
+        <!-- Box 5 -->
+        <div class="box opacity">Box with Opacity</div>
+        <div class="box font-roboto">Roboto Font</div>
+
+        <!-- Box 6 -->
+        <div class="box small-font">Small Font</div>
+        <div class="box font-weight">Bold Font Weight</div>
+
+        <!-- Box 7 -->
+        <div class="box italic">Italic Text</div>
+        <div class="box text-ellipsis">Text Ellipsis Overflow</div>
+
+        <!-- Box 8 -->
+        <div class="box underline-yellow">Underlined Yellow Text</div>
+        <div class="box underline-dotted">Dotted Underlined Text</div>
+
+        <!-- Box 9 -->
+        <div class="box underline-thick">Thick Underlined Text</div>
+        <div class="box align-last-right">Right-aligned Last Line</div>
+
+        <!-- Box 10 -->
+        <div class="box justify-text">Justified Text</div>
+        <div class="box line-break">Line Break Text</div>
+
+        <!-- Box 11 -->
+        <div class="box word-break">Word Break Effect</div>
+        <div class="box rotate">Rotated Box</div>
+
+        <!-- Box 12 -->
+        <div class="box width-transition">Width Transition on Hover</div>
+        <div class="box bg-transition">Background Color Transition</div>
+
+        <!-- Box 13 -->
+        <div class="box transition-delay">Transition Delay</div>
+        <div class="box spin-animation">Spin Animation</div>
+
+        <!-- Box 14 -->
+        <div class="box short-duration">Short Duration Animation</div>
+        <div class="box animation-delay">Animation Delay</div>
+
+        <!-- Box 15 -->
+        <div class="box infinite-animation">Infinite Animation</div>
+        <div class="box alternate-animation">Alternate Animation</div>
+
+        <!-- Box 16 -->
+        <div class="box fill-mode-animation">Fill Mode Animation</div>
+        <div class="box paused-animation">Paused Animation</div>
+
+        <!-- Box 17 -->
+        <div class="box transform-origin">Transform Origin</div>
+        <div class="box scale">Scale Transformation</div>
+
+        <!-- Box 18 -->
+        <div class="box rotate-90">90° Rotation</div>
+        <div class="box skewX">Skewed Box</div>
+
+        <!-- Box 19 -->
+        <div class="box translateX">Translated Box</div>
+        <div class="box perspective">Perspective Box</div>
+
+        <!-- Box 20 -->
+        <div class="box backface-hidden">Backface Hidden</div>
+        <div class="box border-radius">Border Radius</div>
+
+        <!-- Box 21 -->
+        <div class="box border-width">Border Width</div>
+        <div class="box border-style">Border Style</div>
+
+        <!-- Box 22 -->
+        <div class="box border-collapse">Border Collapse</div>
+        <div class="box border-spacing">Border Spacing</div>
+
+        <!-- Box 23 -->
+        <div class="box outline-none">No Outline</div>
+        <div class="box overflow-hidden">Overflow Hidden</div>
+
+        <!-- Box 24 -->
+        <div class="box overflow-x-hidden">Overflow X Hidden</div>
+        <div class="box overflow-y-hidden">Overflow Y Hidden</div>
+
+        <!-- Box 25 -->
+        <div class="box z-index">Z-index</div>
+        <div class="box pointer-events-none">Pointer Events None</div>
+
+        <!-- Box 26 -->
+        <div class="box resize-none">Resize None</div>
+        <div class="box cursor-pointer">Cursor Pointer</div>
+
+        <!-- Box 27 -->
+        <div class="box user-select-none">User Select None</div>
+        <div class="box filter-grayscale">Grayscale Filter</div>
+
+        <!-- Box 28 -->
+        <div class="box backdrop-blur">Backdrop Blur</div>
+        <div class="box blend-screen">Blend Mode Screen</div>
+
+        <!-- Box 29 -->
+        <div class="box clip-path">Clip Path</div>
+        <div class="box will-change">Will Change</div>
+
+        <!-- Box 30 -->
+        <div class="box isolation-isolate">Isolation Isolate</div>
+        <div class="box shape-outside">Shape Outside</div>
+
+        <!-- Box 31 -->
+        <div class="box margin">Margin</div>
+        <div class="box margin-top">Margin Top</div>
+
+        <!-- Box 32 -->
+        <div class="box margin-right">Margin Right</div>
+        <div class="box margin-bottom">Margin Bottom</div>
+
+        <!-- Box 33 -->
+        <div class="box margin-left">Margin Left</div>
+        <div class="box padding">Padding</div>
+
+        <!-- Box 34 -->
+        <div class="box padding-top">Padding Top</div>
+        <div class="box padding-right">Padding Right</div>
+
+        <!-- Box 35 -->
+        <div class="box padding-bottom">Padding Bottom</div>
+        <div class="box padding-left">Padding Left</div>
+
+        <!-- Box 36 -->
+        <div class="box width-100">Width 100%</div>
+        <div class="box height-150">Height 150px</div>
+
+        <!-- Box 37 -->
+        <div class="box min-width">Min Width 200px</div>
+        <div class="box max-width">Max Width 500px</div>
+
+        <!-- Box 38 -->
+        <div class="box min-height">Min Height 100px</div>
+        <div class="box max-height">Max Height 400px</div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etiquetas</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            color: #333;
+        }
+
+        h1 {
+            width: 100%;
+            text-align: center;
+            font-size: 2.5rem;
+            color: #4a4e69;
+            margin-bottom: 40px;
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 3px solid #9a8c98;
+            padding-bottom: 10px;
+        }
+
+        /* Grid Container for Boxes */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Dos columnas */
+            gap: 20px;
+            width: 100%;
+            max-width: 900px; /* Ajuste de ancho máximo */
+        }
+
+        /* Estilo de los cuadros */
+        .box {
+            padding: 25px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #fff;
+            background-color: #6b705c;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Estilos específicos para cada efecto */
+        .ease-in {
+            transition-timing-function: ease-in;
+            transition: transform 0.5s;
+        }
+        .ease-in:hover {
+            transform: scale(1.1);
+        }
+        .yellow-bg {
+            background-color: #ffdd57;
+            color: #333;
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+        .pink-border {
+            border: 3px solid #ffadad;
+        }
+        .text-right {
+            text-align: right;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+        .uppercase {
+            text-transform: uppercase;
+        }
+        .box-shadow {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+        }
+        .opacity {
+            opacity: 0.75;
+        }
+        .font-roboto {
+            font-family: 'Roboto', sans-serif;
+        }
+        .small-font {
+            font-size: 0.85rem;
+        }
+        .font-weight {
+            font-weight: 700;
+        }
+        .italic {
+            font-style: italic;
+        }
+        .text-ellipsis {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .underline-yellow {
+            text-decoration: underline;
+            text-decoration-color: yellow;
+        }
+        .underline-dotted {
+            text-decoration-style: dotted;
+        }
+        .underline-thick {
+            text-decoration-thickness: 3px;
+        }
+        .align-last-right {
+            text-align-last: right;
+        }
+        .justify-text {
+            text-align: justify;
+        }
+        .line-break {
+            line-break: anywhere;
+        }
+        .word-break {
+            word-break: break-all;
+        }
+        .rotate {
+            transform: rotate(45deg);
+            background-color: #b5838d;
+        }
+        .width-transition {
+            transition: width 2s;
+        }
+        .width-transition:hover {
+            width: 100%;
+        }
+        .bg-transition {
+            transition-property: background-color;
+        }
+        .bg-transition:hover {
+            background-color: #6d6875;
+        }
+        .transition-delay {
+            transition: background-color 0.5s ease;
+            transition-delay: 0.2s;
+        }
+        .transition-delay:hover {
+            background-color: #ffb4a2;
+        }
+        .spin-animation {
+            animation: spin 2s linear infinite;
+            background-color: #c9ada7;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0); }
+            100% { transform: rotate(360deg); }
+        }
+        .short-duration {
+            animation-duration: 0.3s;
+        }
+        .animation-delay {
+            animation: spin 2s linear infinite;
+            animation-delay: 0.5s;
+        }
+        .infinite-animation {
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        .alternate-animation {
+            animation: slide 2s alternate infinite;
+        }
+        @keyframes slide {
+            from { transform: translateX(0); }
+            to { transform: translateX(30px); }
+        }
+        .fill-mode-animation {
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .paused-animation {
+            animation: spin 2s linear paused;
+        }
+        .transform-origin {
+            transform: rotate(45deg);
+            transform-origin: center;
+            background-color: #b5838d;
+        }
+        .scale {
+            transform: scale(1.5);
+        }
+        .rotate-90 {
+            transform: rotate(90deg);
+        }
+        .skewX {
+            transform: skewX(6deg);
+        }
+        .translateX {
+            transform: translateX(-4px);
+        }
+        .perspective {
+            perspective: 500px;
+            transform: rotateY(20deg);
+        }
+        .backface-hidden {
+            backface-visibility: hidden;
+            animation: spin 2s infinite;
+        }
+        .border-radius {
+            border-radius: 8px;
+        }
+        .border-width {
+            border: 4px solid #ffadad;
+        }
+        .border-style {
+            border: 2px dashed #ffb4a2;
+        }
+        .border-collapse {
+            display: table;
+            border-collapse: collapse;
+        }
+        .border-spacing {
+            display: table;
+            border-spacing: 10px;
+        }
+        .outline-none {
+            outline: none;
+        }
+        .overflow-hidden {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .overflow-x-hidden {
+            overflow-x: hidden;
+        }
+        .overflow-y-hidden {
+            overflow-y: hidden;
+            height: 50px;
+        }
+        .z-index {
+            position: relative;
+            z-index: 10;
+            background-color: #ff6b6b;
+        }
+        .pointer-events-none {
+            pointer-events: none;
+        }
+        .resize-none {
+            resize: none;
+            overflow: hidden;
+        }
+        .cursor-pointer {
+            cursor: pointer;
+        }
+        .user-select-none {
+            user-select: none;
+        }
+        .filter-grayscale {
+            filter: grayscale(50%);
+        }
+        .backdrop-blur {
+            backdrop-filter: blur(10px);
+            background-color: rgba(107, 112, 92, 0.5);
+        }
+        .blend-screen {
+            background-color: #fcbf49;
+            mix-blend-mode: screen;
+        }
+        .clip-path {
+            clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+        }
+        .will-change {
+            will-change: transform;
+            transition: transform 0.3s ease-in-out;
+        }
+        .isolation-isolate {
+            isolation: isolate;
+            background-color: #6d6875;
+        }
+
+        /* Nuevas etiquetas */
+        .shape-outside {
+            shape-outside: circle(50%);
+            float: left;
+            width: 150px;
+            height: 150px;
+            background-color: #8d99ae;
+            border-radius: 50%;
+        }
+        .margin {
+            margin: 16px;
+            background-color: #ff6b6b;
+        }
+        .margin-top {
+            margin-top: 32px;
+            background-color: #fcbf49;
+        }
+        .margin-right {
+            margin-right: 48px;
+            background-color: #6b705c;
+        }
+        .margin-bottom {
+            margin-bottom: 64px;
+            background-color: #b5838d;
+        }
+        .margin-left {
+            margin-left: 80px;
+            background-color: #c9ada7;
+        }
+        .padding {
+            padding: 16px;
+            background-color: #f4f4f9;
+        }
+        .padding-top {
+            padding-top: 12px;
+            background-color: #d4a5a5;
+        }
+        .padding-right {
+            padding-right: 18px;
+            background-color: #6b705c;
+        }
+        .padding-bottom {
+            padding-bottom: 24px;
+            background-color: #fcbf49;
+        }
+        .padding-left {
+            padding-left: 30px;
+            background-color: #ffdd57;
+        }
+        .width-100 {
+            width: 100%;
+            background-color: #ff6b6b;
+        }
+        .height-150 {
+            height: 150px;
+            background-color: #6b705c;
+        }
+        .min-width {
+            min-width: 200px;
+            background-color: #f4f4f9;
+        }
+        .max-width {
+            max-width: 500px;
+            background-color: #fcbf49;
+        }
+        .min-height {
+            min-height: 100px;
+            background-color: #ffadad;
+        }
+        .max-height {
+            max-height: 400px;
+            background-color: #b5838d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Etiquetas CSS</h1>
+    <div class="grid-container">
+        <!-- Box 1 -->
+        <div class="box ease-in">Transition with ease-in</div>
+        <div class="box yellow-bg">Yellow Background Box</div>
+
+        <!-- Box 2 -->
+        <div class="box text-shadow">Text Shadow Effect</div>
+        <div class="box pink-border">Pink Border Box</div>
+
+        <!-- Box 3 -->
+        <div class="box text-right">Right-aligned Text</div>
+        <div class="box underline">Underlined Text</div>
+
+        <!-- Box 4 -->
+        <div class="box uppercase">Uppercase Text</div>
+        <div class="box box-shadow">Box with Shadow</div>
+
+        <!-- Box 5 -->
+        <div class="box opacity">Box with Opacity</div>
+        <div class="box font-roboto">Roboto Font</div>
+
+        <!-- Box 6 -->
+        <div class="box small-font">Small Font</div>
+        <div class="box font-weight">Bold Font Weight</div>
+
+        <!-- Box 7 -->
+        <div class="box italic">Italic Text</div>
+        <div class="box text-ellipsis">Text Ellipsis Overflow</div>
+
+        <!-- Box 8 -->
+        <div class="box underline-yellow">Underlined Yellow Text</div>
+        <div class="box underline-dotted">Dotted Underlined Text</div>
+
+        <!-- Box 9 -->
+        <div class="box underline-thick">Thick Underlined Text</div>
+        <div class="box align-last-right">Right-aligned Last Line</div>
+
+        <!-- Box 10 -->
+        <div class="box justify-text">Justified Text</div>
+        <div class="box line-break">Line Break Text</div>
+
+        <!-- Box 11 -->
+        <div class="box word-break">Word Break Effect</div>
+        <div class="box rotate">Rotated Box</div>
+
+        <!-- Box 12 -->
+        <div class="box width-transition">Width Transition on Hover</div>
+        <div class="box bg-transition">Background Color Transition</div>
+
+        <!-- Box 13 -->
+        <div class="box transition-delay">Transition Delay</div>
+        <div class="box spin-animation">Spin Animation</div>
+
+        <!-- Box 14 -->
+        <div class="box short-duration">Short Duration Animation</div>
+        <div class="box animation-delay">Animation Delay</div>
+
+        <!-- Box 15 -->
+        <div class="box infinite-animation">Infinite Animation</div>
+        <div class="box alternate-animation">Alternate Animation</div>
+
+        <!-- Box 16 -->
+        <div class="box fill-mode-animation">Fill Mode Animation</div>
+        <div class="box paused-animation">Paused Animation</div>
+
+        <!-- Box 17 -->
+        <div class="box transform-origin">Transform Origin</div>
+        <div class="box scale">Scale Transformation</div>
+
+        <!-- Box 18 -->
+        <div class="box rotate-90">90° Rotation</div>
+        <div class="box skewX">Skewed Box</div>
+
+        <!-- Box 19 -->
+        <div class="box translateX">Translated Box</div>
+        <div class="box perspective">Perspective Box</div>
+
+        <!-- Box 20 -->
+        <div class="box backface-hidden">Backface Hidden</div>
+        <div class="box border-radius">Border Radius</div>
+
+        <!-- Box 21 -->
+        <div class="box border-width">Border Width</div>
+        <div class="box border-style">Border Style</div>
+
+        <!-- Box 22 -->
+        <div class="box border-collapse">Border Collapse</div>
+        <div class="box border-spacing">Border Spacing</div>
+
+        <!-- Box 23 -->
+        <div class="box outline-none">No Outline</div>
+        <div class="box overflow-hidden">Overflow Hidden</div>
+
+        <!-- Box 24 -->
+        <div class="box overflow-x-hidden">Overflow X Hidden</div>
+        <div class="box overflow-y-hidden">Overflow Y Hidden</div>
+
+        <!-- Box 25 -->
+        <div class="box z-index">Z-index</div>
+        <div class="box pointer-events-none">Pointer Events None</div>
+
+        <!-- Box 26 -->
+        <div class="box resize-none">Resize None</div>
+        <div class="box cursor-pointer">Cursor Pointer</div>
+
+        <!-- Box 27 -->
+        <div class="box user-select-none">User Select None</div>
+        <div class="box filter-grayscale">Grayscale Filter</div>
+
+        <!-- Box 28 -->
+        <div class="box backdrop-blur">Backdrop Blur</div>
+        <div class="box blend-screen">Blend Mode Screen</div>
+
+        <!-- Box 29 -->
+        <div class="box clip-path">Clip Path</div>
+        <div class="box will-change">Will Change</div>
+
+        <!-- Box 30 -->
+        <div class="box isolation-isolate">Isolation Isolate</div>
+        <div class="box shape-outside">Shape Outside</div>
+
+        <!-- Box 31 -->
+        <div class="box margin">Margin</div>
+        <div class="box margin-top">Margin Top</div>
+
+        <!-- Box 32 -->
+        <div class="box margin-right">Margin Right</div>
+        <div class="box margin-bottom">Margin Bottom</div>
+
+        <!-- Box 33 -->
+        <div class="box margin-left">Margin Left</div>
+        <div class="box padding">Padding</div>
+
+        <!-- Box 34 -->
+        <div class="box padding-top">Padding Top</div>
+        <div class="box padding-right">Padding Right</div>
+
+        <!-- Box 35 -->
+        <div class="box padding-bottom">Padding Bottom</div>
+        <div class="box padding-left">Padding Left</div>
+
+        <!-- Box 36 -->
+        <div class="box width-100">Width 100%</div>
+        <div class="box height-150">Height 150px</div>
+
+        <!-- Box 37 -->
+        <div class="box min-width">Min Width 200px</div>
+        <div class="box max-width">Max Width 500px</div>
+
+        <!-- Box 38 -->
+        <div class="box min-height">Min Height 100px</div>
+        <div class="box max-height">Max Height 400px</div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+Etiquetas CSS de Grid y Animaciones
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etiquetas CSS de Grid y Animaciones</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            color: #333;
+        }
+
+        h1 {
+            width: 100%;
+            text-align: center;
+            font-size: 2.5rem;
+            color: #4a4e69;
+            margin-bottom: 40px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 3px solid #9a8c98;
+            padding-bottom: 10px;
+        }
+
+        /* Grid Container for Boxes */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr)); /* Cuatro columnas */
+            grid-template-rows: repeat(3, minmax(0, 1fr));  /* Tres filas */
+            gap: 16px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* Estilo de los cuadros */
+        .box {
+            padding: 25px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #fff;
+            background-color: #6b705c;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animaciones */
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(-25%);
+            }
+            50% {
+                transform: translateY(0%);
+            }
+        }
+
+        /* Estilos adicionales */
+        .spin-animation {
+            animation: spin 2s linear infinite;
+            background-color: #c9ada7;
+        }
+
+        .bounce-animation {
+            animation: bounce 2s infinite;
+            background-color: #ffadad;
+        }
+
+        .border {
+            border: 1px solid #000000;
+        }
+
+        .border-top {
+            border-top: 2px solid #000000;
+        }
+
+        .border-right {
+            border-right: 4px solid #000000;
+        }
+
+        .border-left {
+            border-left: 1px solid #000000;
+        }
+
+        .border-bottom {
+            border-bottom: 1px solid #000000;
+        }
+
+        .border-yellow {
+            border: 1px solid rgba(255, 255, 0, 0.6);
+        }
+
+        .border-dashed {
+            border-style: dashed;
+        }
+
+        .border-color {
+            border-color: rgba(0, 0, 0, 0.75);
+        }
+
+        .backdrop-filter {
+            backdrop-filter: blur(10px);
+            background-color: rgba(107, 112, 92, 0.5);
+        }
+
+        /* Nuevas etiquetas */
+        .element {
+            grid-auto-columns: auto;
+            grid-auto-rows: auto;
+            justify-self: center;
+            grid-auto-flow: column;
+            place-content: center;
+            place-items: center;
+            gap: 16px;
+            justify-items: center;
+        }
+
+        .element > * {
+            border-top-width: 2px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Etiquetas CSS de Grid y Animaciones</h1>
+    <div class="grid-container">
+        <!-- Box 1 -->
+        <div class="box spin-animation">Spin Animation</div>
+        <div class="box bounce-animation">Bounce Animation</div>
+
+        <!-- Box 2 -->
+        <div class="box border">Box with Border</div>
+        <div class="box border-top">Box with Top Border</div>
+
+        <!-- Box 3 -->
+        <div class="box border-right">Box with Right Border</div>
+        <div class="box border-bottom">Box with Bottom Border</div>
+
+        <!-- Box 4 -->
+        <div class="box border-left">Box with Left Border</div>
+        <div class="box border-yellow">Yellow Border Box</div>
+
+        <!-- Box 5 -->
+        <div class="box border-dashed">Dashed Border Box</div>
+        <div class="box border-color">Custom Border Color</div>
+
+        <!-- Box 6 -->
+        <div class="box backdrop-filter">Backdrop Blur</div>
+        <div class="box">Box with Grid Auto Flow</div>
+
+        <!-- Box 7 -->
+        <div class="box">Justified and Centered</div>
+        <div class="box">Grid Template Columns</div>
+
+        <!-- Box 8 -->
+        <div class="box">Grid Template Rows</div>
+        <div class="box">Place Items Centered</div>
+
+        <!-- Box 9 -->
+        <div class="box">Auto Columns Grid</div>
+        <div class="box">Auto Rows Grid</div>
+    </div>
+</body>
+</html>
+
+
