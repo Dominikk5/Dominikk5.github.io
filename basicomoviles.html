@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    .feed-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 16px;
+    }
+    
+    .feed-header {
+      padding: 12px;
+      border-bottom: 1px solid #e4e6eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .feed-header h1 {
+      margin: 0;
+      color: #1c1e21;
+      font-size: 20px;
+    }
+    
+    .feed-item {
+      padding: 16px 12px;
+      border-bottom: 1px solid #e4e6eb;
+    }
+    
+    .post-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #e4e6eb;
+      flex-shrink: 0;
+    }
+    
+    .post-info {
+      flex: 1;
+    }
+    
+    .name {
+      font-weight: 600;
+      color: #050505;
+      margin-bottom: 4px;
+    }
+    
+    .time {
+      color: #65676b;
+      font-size: 12px;
+    }
+    
+    .post-image {
+      width: 100%;
+      height: 300px;
+      background: #e4e6eb;
+      border-radius: 8px;
+      margin: 12px 0;
+      object-fit: cover;
+    }
+    
+    .message {
+      color: #65676b;
+      margin: 12px 0;
+      line-height: 1.4;
+    }
+    
+    .interaction-bar {
+      display: flex;
+      gap: 16px;
+      padding-top: 8px;
+      color: #65676b;
+      font-size: 14px;
+    }
+    
+    .interaction-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+    }
+    
+    .badge {
+      background: #0866ff;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="feed-container">
+    <div class="feed-header">
+      <h1>NutriFit Feed</h1>
+      <span class="badge">Premium</span>
+    </div>
+    
+    <div class="feed-item">
+      <div class="post-header">
+        <div class="avatar"></div>
+        <div class="post-info">
+          <div class="name">Coach Maria González</div>
+          <div class="time">Hace 1 hora</div>
+        </div>
+      </div>
+      <p class="message">¡Nueva rutina de ejercicios para ganar masa muscular! Aquí les comparto una demostración del circuito de hoy 💪</p>
+      <div class="post-image"></div>
+      <div class="interaction-bar">
+        <div class="interaction-item">❤️ Me gusta</div>
+        <div class="interaction-item">💬 Comentar</div>
+        <div class="interaction-item">↗️ Compartir</div>
+      </div>
+    </div>
+    
+    <div class="feed-item">
+      <div class="post-header">
+        <div class="avatar"></div>
+        <div class="post-info">
+          <div class="name">NutriFit Recetas</div>
+          <div class="time">Hace 3 horas</div>
+        </div>
+      </div>
+      <p class="message">Desayuno alto en proteínas: Bowl de avena con frutas y semillas. Perfecto para empezar el día con energía 🥣</p>
+      <div class="post-image"></div>
+      <div class="interaction-bar">
+        <div class="interaction-item">❤️ Me gusta</div>
+        <div class="interaction-item">💬 Comentar</div>
+        <div class="interaction-item">↗️ Compartir</div>
+      </div>
+    </div>
+    
+    <div class="feed-item">
+      <div class="post-header">
+        <div class="avatar"></div>
+        <div class="post-info">
+          <div class="name">NutriFit Store</div>
+          <div class="time">Hace 5 horas</div>
+        </div>
+      </div>
+      <p class="message">¡Nueva colección de ropa deportiva disponible! Diseñada para máximo rendimiento y comodidad 🏃‍♂️</p>
+      <div class="post-image"></div>
+      <div class="interaction-bar">
+        <div class="interaction-item">❤️ Me gusta</div>
+        <div class="interaction-item">💬 Comentar</div>
+        <div class="interaction-item">↗️ Compartir</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

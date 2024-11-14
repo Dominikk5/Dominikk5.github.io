@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Estilizada en HTML</title>
+    <style>
+       
+       
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        
+        li {
+            background-color: #e0f7fa;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #00796b;
+            transition: all 0.3s ease;
+        }
+
+        
+        li:hover {
+            background-color: #00796b;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        
+        ol {
+            list-style-type: decimal;
+        }
+
+        ol li {
+            background-color: #fff3e0;
+            border: 1px solid #ff7043;
+        }
+
+        
+        .list-header {
+            background-color: #00796b;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+       
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #00796b;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Ejemplo de Listas Estilizadas</h1>
+
+        <div class="list-section">
+            <h2 class="list-header">Lista Desordenada</h2>
+            <ul>
+                <li>Manzana</li>
+                <li>Plátano</li>
+                <li>Uva</li>
+                <li>Naranja</li>
+            </ul>
+        </div>
+
+        <div class="list-section">
+            <h2 class="list-header">Lista Ordenada</h2>
+            <ol>
+                <li>Primer paso: Preparar los ingredientes</li>
+                <li>Segundo paso: Cocinar los ingredientes</li>
+                <li>Tercer paso: Servir y decorar</li>
+                <li>Cuarto paso: Disgustar
